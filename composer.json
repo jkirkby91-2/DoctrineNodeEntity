@@ -1,0 +1,21 @@
+{
+    "name": "jkirkby91/DoctrineNodeEntity",
+    "autoload": {
+        "psr-4": {
+            "Jkirkby91\\DoctrineNodeEntity\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "psr/http-message": "~1.0",
+        "jkirkby91/NodeEntityBoiler":"dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jkirkby91\\DoctrineNodeEntity\\Tests\\": "tests/"
+        }
+    }
+}
