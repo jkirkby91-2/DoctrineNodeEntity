@@ -13,15 +13,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Entity
  * @ORM\MappedSuperclass
- * @ORM\HasLifecycleCallbacks()
- * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
- * @ORM\Entity(repositoryClass="ApiArchitect\Compass\Repositories\NodeRepository")
- * @ORM\Table(name="node", indexes={@ORM\Index(name="search_idx", columns={"id","node_type"})})
  */
 abstract class DoctrineNode implements \Jkirkby91\Boilers\NodeEntityBoiler\NodeContract
 {
-
-//    use \Jkirkby91\DoctrineNodeEntity\DoctrineNodeTrait;
 
     /**
      * @var
@@ -123,17 +117,7 @@ abstract class DoctrineNode implements \Jkirkby91\Boilers\NodeEntityBoiler\NodeC
     }
 
     /**
-     * Returns user who last updated a piece of content
-     *
      * @return string
-     */
-    public function getContentChangedBy()
-    {
-        return $this->contentChangedBy;
-    }
-
-    /**
-     * @return mixed
      */
     public function getNodeType()
     {
@@ -148,5 +132,15 @@ abstract class DoctrineNode implements \Jkirkby91\Boilers\NodeEntityBoiler\NodeC
     {
         $this->nodeType = $nodeType;
         return $this;
+    }
+
+    /**
+     * Returns user who last updated a piece of content
+     *
+     * @return string
+     */
+    public function getContentChangedBy()
+    {
+        return $this->contentChangedBy;
     }
 }

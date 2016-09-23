@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Class AbstractNode
  *
  * @package app\Entities
- * @author James Kirkby <hello@jameskirkby.com>
+ * @author James Kirkby <jkirkby91@gmail.com>
  *
  * @ORM\MappedSuperclass
  * @ORM\HasLifecycleCallbacks()
@@ -26,10 +26,71 @@ abstract class DoctrineEntity implements \Jkirkby91\Boilers\NodeEntityBoiler\Ent
     protected $id;
 
     /**
+     * @var
+     *
+     * @ORM\OneToOne(targetEntity="Node",fetch="LAZY")
+     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
+     * @ORM\Column(type="integer", unique=true, nullable=false)
+     */
+    protected $nid;
+
+    /**
+     * @ORM\Column(type="string", length=45, nullable=true)
+     */
+    public $nodeType;
+
+    /**
+     * DoctrineEntity constructor.
+     * @param $nodeType
+     */
+    public function __construct($nodeType)
+    {
+        $this->nodeType = $nodeType;
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
     {
         return $this->id;
     }
+
+
+    /**
+     * @return mixed
+     */
+    public function getNid()
+    {
+        return $this->nid;
+    }
+
+    /**
+     * @param $nid
+     * @return $this
+     */
+    public function setNid($nid)
+    {
+        $this->nid = $nid;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNodeType()
+    {
+        return $this->nodeType;
+    }
+
+    /**
+     * @param mixed $nodeType
+     * @return DoctrineEntity
+     */
+    public function setNodeType($nodeType)
+    {
+        $this->nodeType = $nodeType;
+        return $this;
+    }
+
 }

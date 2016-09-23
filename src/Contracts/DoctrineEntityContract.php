@@ -6,7 +6,7 @@ namespace Jkirkby91\DoctrineNodeEntity\Contracts;
  * Interface DoctrineNodeEntityContract
  * @package Jkirkby91\DoctrineNodeEntity\Contracts
  */
-interface DoctrineNodeEntityContract extends \Jkirkby91\Boilers\EntityBoiler\EntityContract
+interface DoctrineEntityContract extends \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
 {
     /**
      * @ORM\PrePersist
