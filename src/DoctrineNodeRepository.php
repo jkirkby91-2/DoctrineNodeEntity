@@ -16,6 +16,5 @@ use Jkirkby91\Boilers\NodeEntityBoiler\EntityContract AS Entity;
  */
 abstract class DoctrineNodeRepository extends \Jkirkby91\DoctrineRepositories\DoctrineRepository implements CrudRepositoryContract
 {
-
     use CrudRepositoryTrait;
 }

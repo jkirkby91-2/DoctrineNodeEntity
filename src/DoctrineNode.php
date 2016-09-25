@@ -12,7 +12,6 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @author James Kirkby <me@jameskirkby.com>
  *
  * @ORM\Entity
- * @ORM\MappedSuperclass
  */
 abstract class DoctrineNode implements \Jkirkby91\Boilers\NodeEntityBoiler\NodeContract
 {

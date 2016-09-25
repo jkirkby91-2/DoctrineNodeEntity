@@ -9,9 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @package app\Entities
  * @author James Kirkby <jkirkby91@gmail.com>
- *
- * @ORM\MappedSuperclass
- * @ORM\HasLifecycleCallbacks()
  */
 abstract class DoctrineEntity implements \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
 {
@@ -40,15 +37,6 @@ abstract class DoctrineEntity implements \Jkirkby91\Boilers\NodeEntityBoiler\Ent
     public $nodeType;
 
     /**
-     * DoctrineEntity constructor.
-     * @param $nodeType
-     */
-    public function __construct($nodeType)
-    {
-        $this->nodeType = $nodeType;
-    }
-
-    /**
      * @return mixed
      */
     public function getId()
@@ -56,6 +44,15 @@ abstract class DoctrineEntity implements \Jkirkby91\Boilers\NodeEntityBoiler\Ent
         return $this->id;
     }
 
+    /**
+     * @param $id
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * @return mixed
