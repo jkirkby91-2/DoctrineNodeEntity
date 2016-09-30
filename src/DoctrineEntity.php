@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @package app\Entities
  * @author James Kirkby <jkirkby91@gmail.com>
+ * @ORM\MappedSuperclass
  */
 abstract class DoctrineEntity implements \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
 {
