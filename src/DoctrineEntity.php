@@ -26,7 +26,7 @@ abstract class DoctrineEntity implements \Jkirkby91\Boilers\NodeEntityBoiler\Ent
     /**
      * @var
      *
-     * @ORM\OneToOne(targetEntity="Node",fetch="LAZY")
+     * @ORM\OneToOne(targetEntity="Node",fetch="EXTRA_LAZY")
      * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
      * @ORM\Column(type="integer", unique=true, nullable=false)
      */
