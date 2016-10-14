@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * Class Node
  *
  * @package app\Entities
- * @author James Kirkby <me@jameskirkby.com>
+ * @author James Kirkby <jkirkby91@gmail.com>
  *
  * @ORM\MappedSuperclass
  */
