@@ -37,7 +37,7 @@ abstract class DoctrineNode implements \Jkirkby91\Boilers\NodeEntityBoiler\NodeC
      * @var string $createdBy
      *
      * @Gedmo\Blameable(on="create")
-     * @ORM\ManyToOne(targetEntity="ApiArchitect\Compass\Entities\User")
+     * @ORM\ManyToOne(targetEntity="ApiArchitect\Auth\Entities\User")
      * @ORM\JoinColumn(name="created_by", referencedColumnName="id")
      */
     protected $createdBy;
