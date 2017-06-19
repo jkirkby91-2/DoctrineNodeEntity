@@ -8,7 +8,7 @@
     "require": {
         "php": ">=7.0.0",
         "psr/http-message": "~1.0",
-        "jkirkby91/NodeEntityBoiler":"dev-master",
+        "jkirkby91/NodeEntityBoiler":"0.0.1-beta",
         "doctrine/orm": "2.5.*",
         "gedmo/doctrine-extensions": "^2.4"
     },
