@@ -1,20 +1,27 @@
 <?php
+	declare(strict_types=1);
 
-namespace Jkirkby91\DoctrineNodeEntity;
+	namespace Jkirkby91\DoctrineNodeEntity {
 
-use Jkirkby91\DoctrineRepositories\CrudRepositoryTrait;
-use Psr\Http\Message\ServerRequestInterface;
-use Jkirkby91\Boilers\NodeEntityBoiler\NodeContract;
-use Jkirkby91\Boilers\RepositoryBoiler\CrudRepositoryContract;
-use Jkirkby91\Boilers\NodeEntityBoiler\EntityContract AS Entity;
+		use Jkirkby91\{
+			Boilers\NodeEntityBoiler\NodeContract,
+			DoctrineRepositories\DoctrineRepository,
+			DoctrineRepositories\CrudRepositoryTrait,
+			Boilers\RepositoryBoiler\CrudRepositoryContract
+		};
 
-/**
- * Class NodeRepository
- *
- * @package app\Repositories\Core\Node
- * @author James Kirkby <jkirkby91@gmail.com>
- */
-abstract class DoctrineNodeRepository extends \Jkirkby91\DoctrineRepositories\DoctrineRepository implements CrudRepositoryContract
-{
-    use CrudRepositoryTrait;
-}
+		use Psr\{
+			Http\Message\ServerRequestInterface
+		};
+
+		/**
+		 * Class DoctrineNodeRepository
+		 *
+		 * @package Jkirkby91\DoctrineNodeEntity
+		 * @author  James Kirkby <jkirkby@protonmail.ch>
+		 */
+		abstract class DoctrineNodeRepository extends DoctrineRepository implements CrudRepositoryContract
+		{
+			use CrudRepositoryTrait;
+		}
+	}

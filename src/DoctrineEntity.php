@@ -1,94 +1,113 @@
 <?php
+	declare(strict_types=1);
 
-namespace Jkirkby91\DoctrineNodeEntity;
+	namespace Jkirkby91\DoctrineNodeEntity {
 
-use Doctrine\ORM\Mapping as ORM;
+		use Doctrine\{
+			ORM\Mapping as ORM
+		};
 
-/**
- * Class AbstractNode
- *
- * @package app\Entities
- * @author James Kirkby <jkirkby91@gmail.com>
- * @ORM\MappedSuperclass
- */
-abstract class DoctrineEntity implements \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
-{
+		use Jkirkby91\{
+			DoctrineSchemas\Entities\Thing,
+			Boilers\NodeEntityBoiler\EntityContract
+		};
 
-    /**
-     * @var
-     *
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer", unique=true, nullable=false)
-     */
-    protected $id;
+		/**
+		 * Class DoctrineEntity
+		 *
+		 * @package Jkirkby91\DoctrineNodeEntity
+		 * @author  James Kirkby <jkirkby@protonmail.ch>
+		 *
+		 * @ORM\MappedSuperclass
+		 */
+		abstract class DoctrineEntity implements EntityContract
+		{
 
-    /**
-     * @var
-     *
-     * @ORM\OneToOne(targetEntity="Node", mappedBy="DoctrineEntity", fetch="LAZY")
-     * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
-     * @ORM\Column(type="integer", unique=true, nullable=false)
-     */
-    protected $nid;
+			/**
+			 * @var int $id
+			 *
+			 * @ORM\Id
+			 * @ORM\GeneratedValue
+			 * @ORM\Column(type="integer", unique=true, nullable=false)
+			 */
+			protected $id;
 
-    /**
-     * @ORM\Column(type="string", length=45, nullable=true)
-     */
-    public $nodeType;
+			/**
+			 * @var int $nid
+			 *
+			 * @ORM\OneToOne(targetEntity="Node", mappedBy="DoctrineEntity", fetch="LAZY")
+			 * @ORM\JoinColumn(name="node_id", referencedColumnName="id")
+			 * @ORM\Column(type="integer", unique=true, nullable=false)
+			 */
+			protected $nid;
 
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+			/**
+			 * @var string $nodeType
+			 * @ORM\Column(type="string", length=45, nullable=true)
+			 */
+			public $nodeType;
 
-    /**
-     * @param $id
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
+			/**
+			 * getId()
+			 * @return int
+			 */
+			public function getId() : int
+			{
+				return $this->id;
+			}
 
-    /**
-     * @return mixed
-     */
-    public function getNid()
-    {
-        return $this->nid;
-    }
+			/**
+			 * setId()
+			 * @param int $id
+			 *
+			 * @return \Jkirkby91\DoctrineNodeEntity\DoctrineEntity
+			 */
+			public function setId(int $id) : DoctrineEntity
+			{
+				$this->id = $id;
+				return $this;
+			}
 
-    /**
-     * @param $nid
-     * @return $this
-     */
-    public function setNid($nid)
-    {
-        $this->nid = $nid;
-        return $this;
-    }
+			/**
+			 * getNid()
+			 * @return int
+			 */
+			public function getNid() : int
+			{
+				return $this->nid;
+			}
 
-    /**
-     * @return mixed
-     */
-    public function getNodeType()
-    {
-        return $this->nodeType;
-    }
+			/**
+			 * setNid()
+			 * @param int $nid
+			 *
+			 * @return \Jkirkby91\DoctrineNodeEntity\DoctrineEntity
+			 */
+			public function setNid(int $nid) : EntityContract
+			{
+				$this->nid = $nid;
+				return $this;
+			}
 
-    /**
-     * @param mixed $nodeType
-     * @return DoctrineEntity
-     */
-    public function setNodeType($nodeType)
-    {
-        $this->nodeType = $nodeType;
-        return $this;
-    }
+			/**
+			 * getNodeType()
+			 * @return string
+			 */
+			public function getNodeType() : string
+			{
+				return $this->nodeType;
+			}
 
-}
+			/**
+			 * setNodeType()
+			 * @param string $nodeType
+			 *
+			 * @return \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
+			 */
+			public function setNodeType(string $nodeType) : EntityContract
+			{
+				$this->nodeType = $nodeType;
+				return $this;
+			}
+		}
+	}

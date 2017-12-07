@@ -1,20 +1,31 @@
 <?php
+	declare(strict_types=1);
 
-namespace Jkirkby91\DoctrineNodeEntity;
+	namespace Jkirkby91\DoctrineNodeEntity {
 
-/**
- * Class AbstractRepository
- * @package Jkirkby91\RepositoryBoiler\Repositories
- */
-abstract class DoctrineEntityRepository extends \Jkirkby91\DoctrineRepositories\DoctrineRepository implements \Jkirkby91\Boilers\RepositoryBoiler\ResourceRepositoryContract
-{
+		use Jkirkby91\{
+			Boilers\RepositoryBoiler\ResourceRepositoryContract,
+			DoctrineRepositories\DoctrineRepository
+		};
 
-    /**
-     * @param $paginate
-     * @return mixed
-     */
-    public function paginatedQuery($paginate)
-    {
-        return $this->paginate($paginate,25);
-    }
-}
+		/**
+		 * Class DoctrineEntityRepository
+		 *
+		 * @package Jkirkby91\DoctrineNodeEntity
+		 * @author  James Kirkby <jkirkby@protonmail.ch>
+		 */
+		abstract class DoctrineEntityRepository extends DoctrineRepository implements ResourceRepositoryContract
+		{
+
+			/**
+			 * paginatedQuery()
+			 * @param $paginate
+			 *
+			 * @return mixed
+			 */
+			public function paginatedQuery($paginate)
+			{
+				return $this->paginate($paginate,25);
+			}
+		}
+	}
